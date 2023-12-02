@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   namespace :admin do 
     resources :users, :recordattends 
   end 
-  post '/recordattends/editrecord', to: 'recordattends#editrecord'
+  post '/recordattends', to: 'recordattends#editrecord'
+  get  '/recordattends/show', to: 'recordattends#showrecord'
 end

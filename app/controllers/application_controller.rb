@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
     include SessionsHelper 
-    helper RecordattendHelper
 
     private
 

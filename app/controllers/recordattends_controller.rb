@@ -2,9 +2,9 @@ class RecordattendsController < ApplicationController
 
     def index 
       @record = Recordattend.find_by(user_id: current_user.id)
-      if @record == nil 
-        @record = Recordattend.create(user_id: current_user.id, attendtime: Time.now)
-      end
+      #if @record == nil 
+        #@record = Recordattend.create(user_id: current_user.id, attendtime: Time.now)
+      #end
     end 
 
     def editrecord
@@ -29,13 +29,13 @@ class RecordattendsController < ApplicationController
     def finishworking
       @record = Recordattend.find_by(user_id: current_user.id, leavetime: nil)
       @record.update(leavetime: Time.now)
-      redirect_to recordattends_path
+      redirect_to recordattends_show_path
     end 
 
     def startresting
       @record = Recordattend.where(user_id: current_user.id).where.not(attendtime: nil).where(leavetime: nil)
       @record.update(reststart: Time.now)
-      redirect_to recordattends_path
+      
     end 
 
     def finishresting
@@ -43,4 +43,8 @@ class RecordattendsController < ApplicationController
       @record.update(restend: Time.now)
       redirect_to recordattends_path
     end 
+
+    def showrecord 
+      @records = Recordattend.where(user_id: current_user.id)
+    end
 end
