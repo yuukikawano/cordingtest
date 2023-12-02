@@ -1,0 +1,2 @@
+module RecordattendHelper
+end
