@@ -1,0 +1,15 @@
+<%=@user.name %><br>
+<% @records.each do |record| %>
+  <%= record.attendtime%>
+  <%= record.leavetime%><br>
+<% end %>
+
+<%= form_with model: @user, url: admin_user_path(@user),method: :patch do |f| %>
+  <%= f.label :hourlewage %>
+  <%= f.number_field :hourlewage, class: "form-control" %>
+
+  <%= f.label :occupation %>
+  <%= f.text_field :occupation, class: "form-control" %>
+
+  <%= f.submit "update profile" %>
+<% end %>

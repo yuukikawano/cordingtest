@@ -1,4 +1,5 @@
 class Recordattend < ApplicationRecord
+  belongs_to :user
   def startrest? 
     if attendtime.present? && leavetime.nil?
       true 

@@ -1,3 +1,4 @@
 <% @users.each do |user| %>
   <%= user.name %>
+  <%= link_to "プロフィール編集", admin_user_path(user)%><br>
 <% end %>
