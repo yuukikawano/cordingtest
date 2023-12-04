@@ -47,4 +47,6 @@ class RecordattendsController < ApplicationController
     def showrecord 
       @records = Recordattend.where(user_id: current_user.id)
     end
+
+    def 
 end

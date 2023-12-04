@@ -1,4 +1,5 @@
 <% @records.each do |record|%>
   <%= record.attendtime %>
-  <%= record.leavetime %></br>
+  <%= record.leavetime %>
+  <%= calculate_fee(record.attendtime,record.leavetime,current_user.id)</br>
 <% end %>
