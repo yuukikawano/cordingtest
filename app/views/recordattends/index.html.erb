@@ -3,3 +3,4 @@
 <%= button_to "休憩戻り", {controller: 'recordattends', action: 'editrecord', type: 'finishresting'}, {method: :post}%><!--, disabled: !@record.finishrest?}%>-->
 <%= button_to "退勤", {controller: 'recordattends', action: 'editrecord', type: 'finishworking'}, {method: :post}%><!--, disabled: !@record.finishwork?}%>-->
 
+<%= link_to "勤怠履歴・シフト提出", recordattends_show_path %>

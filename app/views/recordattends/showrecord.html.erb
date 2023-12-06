@@ -1,5 +1,20 @@
 <% @records.each do |record|%>
   <%= record.attendtime %>
   <%= record.leavetime %>
-  <%= calculate_fee(record.attendtime,record.leavetime,current_user.id)</br>
+  <%= calculate_fee(record.attendtime,record.leavetime,current_user.id)%></br>
+<% end %>
+
+<%= month_calendar do |date| %>
+  <%= date.day %>
+  <%= search_shifts_on_day(date) %>
+<% end %>
+
+<%=form_with(model: Shiftcalendar.new, url: recordattends_show_path, method: :post) do |form|%>
+  <%= form.label :attendtime, '出勤時間' %>
+  <%= form.datetime_select :attendtime %>
+
+  <%= form.label :leavetime, '退勤時間' %>
+  <%= form.datetime_select :leavetime %>
+
+  <%= form.submit 'Create Shift' %>
 <% end %>

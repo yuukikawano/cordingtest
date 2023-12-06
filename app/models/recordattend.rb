@@ -17,10 +17,4 @@ class Recordattend < ApplicationRecord
       true 
     end
   end 
-
-  def calculate_fee(attend,leave,user_id)
-    hourlywage = User.find_by(user_id).hourlewage
-    total_fee = (leave - attend) * hourlewage/60
-    total_fee 
-  end 
 end

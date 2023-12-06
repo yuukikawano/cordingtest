@@ -1,4 +1,5 @@
 class RecordattendsController < ApplicationController
+    helper RecordattendsHelper
 
     def index 
       @record = Recordattend.find_by(user_id: current_user.id)
@@ -48,5 +49,4 @@ class RecordattendsController < ApplicationController
       @records = Recordattend.where(user_id: current_user.id)
     end
 
-    def 
 end
