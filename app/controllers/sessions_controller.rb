@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
       end
     else   
       render 'new' 
+      puts user.authenticate(params[:session][:password])
     end 
   end 
 

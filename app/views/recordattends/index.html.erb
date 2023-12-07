@@ -1,6 +1,17 @@
-<%= button_to "出勤", {controller: 'recordattends', action: 'editrecord', type: 'startworking'}, {method: :post}%>
-<%= button_to "休憩入り", {controller: 'recordattends', action: 'editrecord', type: 'startresting'}, {method: :post}%><!--, disabled: !@record.startrest? }%>-->
-<%= button_to "休憩戻り", {controller: 'recordattends', action: 'editrecord', type: 'finishresting'}, {method: :post}%><!--, disabled: !@record.finishrest?}%>-->
-<%= button_to "退勤", {controller: 'recordattends', action: 'editrecord', type: 'finishworking'}, {method: :post}%><!--, disabled: !@record.finishwork?}%>-->
+<% if workstatus(current_user.id) == "able to start working" %>
+  <%= button_to "出勤", {controller: 'recordattends', action: 'editrecord', type: 'startworking'}, {method: :post} %>
+<% end %>
+
+<% if workstatus(current_user.id) == "working" %>
+  <%= button_to "休憩入り", {controller: 'recordattends', action: 'editrecord', type: 'startresting'}, {method: :post} %>
+<% end %>
+
+<% if workstatus(current_user.id) == "resting" %>
+  <%= button_to "休憩戻り", {controller: 'recordattends', action: 'editrecord', type: 'finishresting'}, {method: :post} %>
+<% end %>
+
+<% if workstatus(current_user.id) == "working" %>
+  <%= button_to "退勤", {controller: 'recordattends', action: 'editrecord', type: 'finishworking'}, {method: :post} %>
+<% end %>
 
 <%= link_to "勤怠履歴・シフト提出", recordattends_show_path %>

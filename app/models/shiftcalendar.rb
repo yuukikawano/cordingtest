@@ -1,8 +1,14 @@
 class Shiftcalendar < ApplicationRecord
-    def calculate_fee(attend,leave,user_id)
-        hourlywage = User.find_by(user_id)&.hourlewage
-        total_fee = (leave - attend) * (hourlewage.to_f/60)
-        total_fee 
+    def calculate_fee(record,user_id)
+        hourlywage = User.find(user_id).hourlewage
+        if record.attributes.values.none?(&:nil?)
+          working_time_seconds = (record.attendtime - record.leavetime) - (record.restend - record.reststart)
+          working_time_hour = working_time_seconds / 3600
+          fee = working_time_hour * hourlywage 
+          fee 
+        else  
+          "勤怠処理を完了させてください"
+        end 
     end 
 
     def search_shifts_on_day(day)
