@@ -1,5 +1,5 @@
 class ShiftcalendarsController < ApplicationController
-  helper ShiftcalendarHelper
+  helper ShiftcalendarsHelper
   def create
      @shift = Shiftcalendar.create(shift_params)
      @shift.user_id = current_user.id 

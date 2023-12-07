@@ -10,9 +10,4 @@ class Shiftcalendar < ApplicationRecord
           "勤怠処理を完了させてください"
         end 
     end 
-
-    def search_shifts_on_day(day)
-        shits_on_day = Shiftcalendar.where("DATE(attendtime) = ?, day.to_date")
-        shifts_on_day
-    end 
 end
