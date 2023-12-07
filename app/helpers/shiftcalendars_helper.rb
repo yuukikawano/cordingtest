@@ -9,4 +9,24 @@ module ShiftcalendarsHelper
         end 
         users_list
     end
+
+    def shift_number_on_day(day)
+        shifts_on_day = Shiftcalendar.where(attendtime: day.beginning_of_day..day.end_of_day)
+        users_on_day = shifts_on_day.pluck(:user_id)
+        num_kitchen = 0 
+        num_hall = 0 
+        num_anything = 0
+        users_on_day.each do |user_id|
+          user = User.find(user_id)
+          if user.occupation == "hall"
+            num_hall += 1 
+          elsif user.occupation == "kitchen"
+            num_kitchen += 1 
+          else   
+            num_anything += 1 
+          end 
+        end  
+        result = { "hall" => num_hall, "kitchen" => num_kitchen, "anything" => num_anything }
+        result
+    end 
 end

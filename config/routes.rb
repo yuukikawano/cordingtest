@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   post '/recordattends', to: 'recordattends#editrecord'
   get  '/recordattends/show', to: 'recordattends#showrecord'
   post '/recordattends/show', to: 'shiftcalendars#create'
+  
 end
