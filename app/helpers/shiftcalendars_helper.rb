@@ -8,5 +8,5 @@ module ShiftcalendarsHelper
           users_list.push(user_name)
         end 
         users_list
-    end 
+    end
 end

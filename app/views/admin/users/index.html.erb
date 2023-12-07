@@ -2,3 +2,8 @@
   <%= user.name %>
   <%= link_to "プロフィール編集", admin_user_path(user)%><br>
 <% end %>
+
+<%= month_calendar do |date| %>
+  <%= date.day %>
+  <% shift_number_on_day(date)%>
+<% end %>
