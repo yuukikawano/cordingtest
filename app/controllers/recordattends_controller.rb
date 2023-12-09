@@ -3,9 +3,9 @@ class RecordattendsController < ApplicationController
 
     def index 
       @record = Recordattend.find_by(user_id: current_user.id)
-      if @record == nil 
-        @record = Recordattend.create(user_id: current_user.id, attendtime: Time.now)
-      end
+      # if @record == nil 
+      #   @record = Recordattend.create(user_id: current_user.id, attendtime: Time.now)
+      # end
     end 
 
     def editrecord

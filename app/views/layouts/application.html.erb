@@ -11,6 +11,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <%=User.find(current_user.id).name %>
+    </header>
+
+    <main>
+      <%= yield %>
+    </main>
+
+    <footer>
+      <!-- フッターのコンテンツ -->
+    </footer>
   </body>
 </html>

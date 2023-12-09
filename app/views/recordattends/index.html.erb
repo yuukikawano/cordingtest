@@ -1,12 +1,15 @@
 <% if workstatus(current_user.id) == "able to start working" %>
+  <p>おはようございます</p>
   <%= button_to "出勤", {controller: 'recordattends', action: 'editrecord', type: 'startworking'}, {method: :post} %>
 <% end %>
 
 <% if workstatus(current_user.id) == "working" %>
+  <p>勤務中です</p>
   <%= button_to "休憩入り", {controller: 'recordattends', action: 'editrecord', type: 'startresting'}, {method: :post} %>
 <% end %>
 
 <% if workstatus(current_user.id) == "resting" %>
+  <p>休憩中です</p>
   <%= button_to "休憩戻り", {controller: 'recordattends', action: 'editrecord', type: 'finishresting'}, {method: :post} %>
 <% end %>
 
