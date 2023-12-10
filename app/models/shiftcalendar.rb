@@ -6,7 +6,7 @@ class Shiftcalendar < ApplicationRecord
             working_time_seconds = (record.attendtime - record.leavetime) - (record.restend - record.reststart)
             working_time_hour = working_time_seconds / 3600
             fee = working_time_hour * hourlywage 
-            fee 
+            "#{fee.round}円"
           else  
             "勤怠処理を完了させてください"
           end 

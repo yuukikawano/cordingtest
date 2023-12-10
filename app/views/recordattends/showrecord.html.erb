@@ -9,6 +9,8 @@
   <%= search_shifts_on_day(date) %>
 <% end %>
 
+
+<div>シフト提出</div>
 <%=form_with(model: Shiftcalendar.new, url: recordattends_show_path, method: :post) do |form|%>
   <%= form.label :attendtime, '出勤時間' %>
   <%= form.datetime_select :attendtime %>
@@ -18,3 +20,5 @@
 
   <%= form.submit 'Create Shift' %>
 <% end %>
+
+<%= link_to "勤怠提出", recordattends_path%>

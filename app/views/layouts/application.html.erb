@@ -12,7 +12,10 @@
 
   <body>
     <header>
-      <%=User.find(current_user.id).name %>
+      <% if current_user.present? %>
+        <div>現在ログインしているユーザー</div>
+        <%=User.find(current_user.id).name %>
+      <% end %>
     </header>
 
     <main>

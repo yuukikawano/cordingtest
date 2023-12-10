@@ -1,0 +1,22 @@
+<%= form_with model: Admin::User.new, url: admin_users_path do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.label :hourlewage %>
+  <%= f.number_field :hourlewage%>
+
+  <%= f.label :occupation%>
+  <%= f.text_field :occupation%></br>
+
+  <%= f.label :password %>
+  <%= f.text_field :password %>
+
+  <%= f.label :passowrd_confirmation %>
+  <%= f.text_field :password_confirmation %>
+
+  <%= f.submit "ユーザー登録" %>
+
+<% end %>

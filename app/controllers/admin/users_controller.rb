@@ -24,9 +24,27 @@ class Admin::UsersController < ApplicationController
       render :show 
     end 
   end
+
+  def new 
+    @user = User.new
+  end 
+
+  def create 
+    @user = User.new(new_user_params)
+  
+    if @user.save 
+      redirect_to admin_user_path(@user), notice: "ユーザーが作成されました。"
+    else   
+      render :new 
+    end 
+  end
   
   private 
     def user_params 
       params.require(:user).permit(:hourlewage, :occupation)
     end 
+
+    def new_user_params 
+      params.require(:admin_user).permit(:name, :email, :hourlewage, :occupation, :password, :password_confirmation)
+    end
 end

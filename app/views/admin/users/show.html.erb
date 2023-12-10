@@ -1,4 +1,4 @@
-<%=@user.name %><br>
+<div>閲覧中のユーザー</div><%=@user.name %><br>
 
 <%=form_with url: admin_user_path, method: :get do |form| %>
   <%= form.label :selected_month, "月を選択してください：" %>
@@ -9,7 +9,9 @@
 <% @records.each do |record| %>
   <%= calculate_fee(record,params[:id])%><br>
 <% end %>
+</br>
 
+<div>時給・職種変更</div>
 <%= form_with model: @user, url: admin_user_path(@user),method: :patch do |f| %>
   <%= f.label :hourlewage %>
   <%= f.number_field :hourlewage, class: "form-control" %>
