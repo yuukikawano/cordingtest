@@ -1,4 +1,4 @@
-class CreateRecordattends < ActiveRecord::Migration[7.0]
+class CreateRecordAttends < ActiveRecord::Migration[7.0]
   def change
     create_table :recordattends do |t|
       t.references :user, foreign_key: true
@@ -10,3 +10,4 @@ class CreateRecordattends < ActiveRecord::Migration[7.0]
     end
   end
 end
+
